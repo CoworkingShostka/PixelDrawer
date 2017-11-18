@@ -18,7 +18,7 @@ function startInit() {
       matrix[i][j] = 0;
     }
   }
-  console.log(matrix);
+  //console.log(matrix);
 
   var art = document.getElementById('art');
 
@@ -47,7 +47,7 @@ function setPixelColour(pixel) {
   var yPos = $(pixel).parent().index();
   
   //alert("Cell index is: " + $(pixel).index() + "\nRow index is: " + $(pixel).parent().index());
-  console.log("Cell index is: " + xPos + "\nRow index is: " + yPos);
+  //console.log("Cell index is: " + xPos + "\nRow index is: " + yPos);
 
   if (penColour == 'black') {
     matrix[yPos][xPos] = 1;
@@ -56,8 +56,8 @@ function setPixelColour(pixel) {
     matrix[yPos][xPos] = 0;
   }
 
-  console.log("Add pixel");
-  console.log(matrix);
+  //console.log("Add pixel");
+  //console.log(matrix);
   // for (var i = 0; i < matrix.length; i++) {
   //   for (var z = 0; z < matrix[i].length; z++) {
   //     console.log(matrix);
@@ -77,7 +77,7 @@ function buttonClick()
     {
       buf += matrix[j][i].toString();
     }
-    
+    dataResultForMCU += '0x';
     // console.log(buf);
     // console.log(parseInt(buf, 2).toString(16));
     if(parseInt(buf,2) <= 0xF)
@@ -101,6 +101,7 @@ function buttonClick()
     
     // console.log(buf);
     // console.log(parseInt(buf, 2).toString(16));
+    dataResultForMCU += '0x';
     if(parseInt(buf,2) <= 0xF)
     {
       dataResult +=0;
@@ -114,6 +115,13 @@ function buttonClick()
 
   dataResultForMCU += '}';
 
-  console.log(dataResult);
-  console.log(dataResultForMCU);
+  writeData();
+  //console.log(dataResult);
+  //console.log(dataResultForMCU);
+}
+
+function writeData()
+{
+  document.getElementById("myText").value  = dataResultForMCU;
+  //alert(dataResultForMCU);
 }
