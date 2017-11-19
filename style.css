@@ -4,12 +4,13 @@
   background-color: black;
   border: 5px solid black;
   /* #008ba3; */
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 10px auto;
+  
 
   border-collapse: separate;
   border-spacing: 2px;
   border-radius: 3px;
+  
 }
 .row{
   display:table-row;
